@@ -1,12 +1,6 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
+    <v-navigation-drawer v-model="drawer" :clipped="clipped" fixed app>
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
@@ -75,6 +69,7 @@ export default {
   name: 'DefaultLayout',
   data() {
     return {
+      dialog: false,
       clipped: false,
       drawer: true,
       fixed: false,
