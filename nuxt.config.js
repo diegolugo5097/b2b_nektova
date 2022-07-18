@@ -21,7 +21,7 @@ export default {
   serverMiddleware: [
     {
       path: '/server-middleware',
-      handler: '~/server-middleware/custom-features.js',
+      handler: '~/server-middleware/login.js',
     },
   ],
 
