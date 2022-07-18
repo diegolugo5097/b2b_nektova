@@ -1,5 +1,5 @@
 const bodyParser = require('body-parser')
-const app = require('express')
+const app = require('express')()
 const axios = require('axios')
 const cors = require('cors')
 const baseUrl = 'https://b2b.thecornercloud.com'
@@ -33,8 +33,8 @@ app.get('/login.js', (req, res) => {
       client_id: 'dtGgEgUWUm5XImbmBcgCNmHL-n6pAhIh',
       client_secret:
         'LFZzIRsDXgsqJhYK8FDNKiXs3j7QMBRvrh5zsDVj83t5veIb2ac_IbXze7aZSUl4XNQ39d2sAasKSbzcpErnUo',
-      username: req.headers.email,
-      password: req.headers.pass,
+      username: req.headers.username,
+      password: req.headers.password,
     },
   }
   axios
