@@ -28,16 +28,35 @@
                     Sign In
                   </v-card-title>
                   <v-card-text>
-                    <v-text-field
-                      v-model="email"
-                      label="E-mail"
-                      required
-                    ></v-text-field>
+                    <v-form class="formLogin">
+                      <v-text-field
+                        v-model="email"
+                        label="E-mail"
+                        required
+                      ></v-text-field>
+                      <v-text-field
+                        v-model="password"
+                        :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+                        :rules="[rules.required, rules.min]"
+                        :type="show ? 'text' : 'password'"
+                        name="input-10-1"
+                        label="Password"
+                        hint="At least 8 characters"
+                        counter
+                        @click:append="show = !show"
+                      ></v-text-field>
+                    </v-form>
                   </v-card-text>
                   <v-divider></v-divider>
                   <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="success" class="mr-4"> Validate </v-btn>
+                    <v-btn
+                      color="success"
+                      @click="signIn"
+                      class="mr-4 btnLoginForm"
+                    >
+                      Log in
+                    </v-btn>
                   </v-card-actions>
                 </v-card>
               </v-dialog>
@@ -65,6 +84,7 @@
 </template>
 
 <script>
+import login from './../api/login.js'
 export default {
   name: 'DefaultLayout',
   data() {
@@ -73,7 +93,14 @@ export default {
       clipped: false,
       drawer: true,
       fixed: false,
+      show: false,
       email: '',
+      password: '',
+      rules: {
+        required: (value) => !!value || 'Required.',
+        min: (v) => v.length >= 8 || 'Min 8 characters',
+        emailMatch: () => `The email and password you entered don't match`,
+      },
       items: [
         {
           icon: 'mdi-apps',
@@ -87,11 +114,36 @@ export default {
       ],
     }
   },
+
+  methods: {
+    setTokenAuth(newToken) {
+      this.$cookies.set('_token', newToken, {
+        path: '/',
+      })
+      this.$store.dispatch('setToken', newToken)
+    },
+
+    setError(err) {
+      console.log(err)
+    },
+
+    signIn() {
+      login(this.setTokenAuth, this.email, this.password, this.setError)
+    },
+  },
 }
 </script>
 
 <style scoped>
 .optionsColor:hover {
   background-color: #3ad159;
+}
+
+.formLogin {
+  padding: 20px;
+}
+
+.btnLoginForm {
+  width: 100%;
 }
 </style>
