@@ -120,7 +120,6 @@ export default {
       this.$cookies.set('_token', newToken, {
         path: '/',
       })
-      this.$store.dispatch('setToken', newToken)
     },
 
     setError(err) {

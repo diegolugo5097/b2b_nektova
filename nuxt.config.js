@@ -19,14 +19,13 @@ export default {
   css: [],
 
   serverMiddleware: [
-    // Auth
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/auth/login.js',
-    },
     {
       path: '/server-middleware',
       handler: '~/server-middleware/auth/get-account-info.js',
+    },
+    {
+      path: '/server-middleware',
+      handler: '~/server-middleware/auth/login.js',
     },
     {
       path: '/server-middleware',
@@ -40,12 +39,10 @@ export default {
       path: '/server-middleware',
       handler: '~/server-middleware/auth/sendEmailForgot.js',
     },
-    // Category
     {
       path: '/server-middleware',
       handler: '~/server-middleware/category/get-category.js',
     },
-    // Order History
     {
       path: '/server-middleware',
       handler: '~/server-middleware/orderHistory/get-orders-details.js',
@@ -54,7 +51,6 @@ export default {
       path: '/server-middleware',
       handler: '~/server-middleware/orderHistory/get-orders.js',
     },
-    // Quick Orders
     {
       path: '/server-middleware',
       handler: '~/server-middleware/quickOrder/get-address.js',
@@ -79,7 +75,6 @@ export default {
       path: '/server-middleware',
       handler: '~/server-middleware/quickOrder/shoppingListPost.js',
     },
-    ,
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -100,6 +95,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    'cookie-universal-nuxt',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
