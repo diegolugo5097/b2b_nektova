@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import login from '~/api/login.js'
+import fetchApi from '~/api/fetchApi.js'
 export default {
   name: 'DefaultLayout',
   data() {
@@ -96,6 +96,15 @@ export default {
       show: false,
       email: '',
       password: '',
+      dataApi: {
+        grant_type: 'password',
+        client_id: 'dtGgEgUWUm5XImbmBcgCNmHL-n6pAhIh',
+        client_secret:
+          'LFZzIRsDXgsqJhYK8FDNKiXs3j7QMBRvrh5zsDVj83t5veIb2ac_IbXze7aZSUl4XNQ39d2sAasKSbzcpErnUo',
+
+        username: this.email,
+        password: this.password,
+      },
       rules: {
         required: (value) => !!value || 'Required.',
         min: (v) => v.length >= 8 || 'Min 8 characters',
@@ -122,12 +131,16 @@ export default {
       })
     },
 
+    setResponse(res) {
+      return res
+    },
+
     setError(err) {
-      console.log(err)
+      return err
     },
 
     signIn() {
-      login(this.setTokenAuth, this.email, this.password, this.setError)
+      fetchApi('POST', 'oauth2-token', this.dataApi)
     },
   },
 }

@@ -21,19 +21,7 @@ export default {
   serverMiddleware: [
     {
       path: '/server-middleware',
-      handler: '~/server-middleware/auth/index.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/category/index.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/orderHistory/index.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/quickOrder/index.js',
+      handler: '~/server-middleware/index.js',
     },
   ],
 
