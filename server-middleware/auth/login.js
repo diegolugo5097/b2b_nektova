@@ -20,29 +20,22 @@ module.exports = {
 app.use(bodyParser.json())
 app.use(cors())
 
-let options
-
-app.get('/fetchApi.js', (req, res) => {
-  if (req.headers.methodMiddle === 'POST') {
-    options = {
-      method: req.headers.methodMiddle,
-      url: `${baseUrl}/${req.headers.url}`,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-      },
-      data: req.headers.data,
-    }
-  } else if (req.headers.methodMiddle === 'GET') {
-    options = {
-      method: req.headers.methodMiddle,
-      url: `${baseUrl}/${req.headers.url}`,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${req.headers.token}`,
-      },
-    }
+app.get('/login.js', (req, res) => {
+  let options = {
+    method: 'POST',
+    url: `${baseUrl}/oauth2-token`,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+    },
+    data: {
+      grant_type: 'password',
+      client_id: 'dtGgEgUWUm5XImbmBcgCNmHL-n6pAhIh',
+      client_secret:
+        'LFZzIRsDXgsqJhYK8FDNKiXs3j7QMBRvrh5zsDVj83t5veIb2ac_IbXze7aZSUl4XNQ39d2sAasKSbzcpErnUo',
+      username: req.headers.username,
+      password: req.headers.password,
+    },
   }
   axios
     .request(options)
