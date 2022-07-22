@@ -127,7 +127,21 @@ export default {
     },
 
     signIn() {
-      login(this.setTokenAuth, this.email, this.password, this.setError)
+      axios
+        .post('http://localhost:8080/oauth2-token', {
+          grant_type: 'password',
+          client_id: 'dtGgEgUWUm5XImbmBcgCNmHL-n6pAhIh',
+          client_secret:
+            'LFZzIRsDXgsqJhYK8FDNKiXs3j7QMBRvrh5zsDVj83t5veIb2ac_IbXze7aZSUl4XNQ39d2sAasKSbzcpErnUo',
+          username: 'customer@example.com',
+          password: 'Custom4rD4mo*',
+        })
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     },
   },
 }
