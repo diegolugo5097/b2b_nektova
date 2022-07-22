@@ -84,7 +84,6 @@
 </template>
 
 <script>
-import login from '~/api/login.js'
 export default {
   name: 'DefaultLayout',
   data() {
