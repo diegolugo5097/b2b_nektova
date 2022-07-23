@@ -7,6 +7,9 @@ let options = (username, password) => {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+      'Access-Control-Allow-Headers': '*',
+      'Access-Control-Allow-Credentials': 'true',
     },
     data: {
       grant_type: 'password',
