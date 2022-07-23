@@ -6,7 +6,6 @@ let options = (username, password) => {
     url: `${baseUrl}/oauth2-token`,
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Headers': '*',
     },
     data: {
       grant_type: 'password',
