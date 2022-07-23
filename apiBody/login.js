@@ -5,7 +5,6 @@ let options = (username, password) => {
     method: 'POST',
     url: `${baseUrl}/oauth2-token`,
     headers: {
-      'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
       'Access-Control-Allow-Headers': '*',
     },
