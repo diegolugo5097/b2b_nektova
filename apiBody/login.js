@@ -1,6 +1,6 @@
 const baseUrl = 'https://b2b.thecornercloud.com'
 
-export default options = (username, password) => {
+let options = (username, password) => {
   let buildOptions = {
     method: 'POST',
     url: `${baseUrl}/oauth2-token`,
@@ -19,3 +19,4 @@ export default options = (username, password) => {
   }
   return buildOptions
 }
+export default options
