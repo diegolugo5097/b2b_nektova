@@ -128,7 +128,7 @@ export default {
     },
 
     signIn() {
-      fetchApi(options(this.username, this.password))
+      fetchApi(options(this.email, this.password))
     },
   },
 }
