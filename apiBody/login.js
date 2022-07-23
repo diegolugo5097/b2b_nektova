@@ -5,11 +5,128 @@ const token =
 
 let options = (username, password) => {
   let buildOptions = {
-    method: 'GET',
-    url: `${baseUrl}/api/shoppinglists?filter%5BcustomerUser%5D=4`,
+    method: 'POST',
+    url: `${baseUrl}/api/orders`,
     headers: {
       Accept: 'application/vnd.api+json',
       Authorization: `Bearer ${token}`,
+    },
+    data: {
+      data: {
+        type: 'orders',
+        attributes: {
+          poNumber: 'TeST1234',
+        },
+        relationships: {
+          billingAddress: {
+            data: {
+              type: 'orderaddresses',
+              id: 'billing1',
+            },
+          },
+          shippingAddress: {
+            data: {
+              type: 'orderaddresses',
+              id: 'shipping1',
+            },
+          },
+          lineItems: {
+            data: [
+              {
+                type: 'orderlineitems',
+                id: '1',
+              },
+            ],
+          },
+        },
+      },
+      included: [
+        {
+          type: 'orderaddresses',
+          id: 'billing1',
+          attributes: {
+            city: 'Romney',
+            firstName: 'Lois',
+            label: 'Optional',
+            lastName: 'Lesssard',
+            middleName: null,
+            namePrefix: null,
+            nameSuffix: null,
+            organization: null,
+            phone: null,
+            postalCode: '47981',
+            street: '34500 Capitol Avenue',
+            street2: null,
+          },
+          relationships: {
+            country: {
+              data: {
+                type: 'countries',
+                id: 'US',
+              },
+            },
+            region: {
+              data: {
+                type: 'regions',
+                id: 'US-NY',
+              },
+            },
+          },
+        },
+        {
+          type: 'orderaddresses',
+          id: 'shipping1',
+          attributes: {
+            city: 'Romney',
+            firstName: 'Lois',
+            label: 'Optional',
+            lastName: 'Lesssard',
+            middleName: null,
+            namePrefix: null,
+            nameSuffix: null,
+            organization: null,
+            phone: null,
+            postalCode: '47981',
+            street: '34500 Capitol Avenue',
+            street2: null,
+          },
+          relationships: {
+            country: {
+              data: {
+                type: 'countries',
+                id: 'US',
+              },
+            },
+            region: {
+              data: {
+                type: 'regions',
+                id: 'US-NY',
+              },
+            },
+          },
+        },
+        {
+          type: 'orderlineitems',
+          id: '1',
+          attributes: {
+            quantity: 1,
+          },
+          relationships: {
+            product: {
+              data: {
+                type: 'products',
+                id: '1',
+              },
+            },
+            productUnit: {
+              data: {
+                type: 'productunits',
+                id: 'item',
+              },
+            },
+          },
+        },
+      ],
     },
   }
   return buildOptions
