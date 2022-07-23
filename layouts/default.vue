@@ -85,7 +85,7 @@
 
 <script>
 import options from '~/apiBody/login.js'
-import apifetch from '~/api/fetchApi'
+import fetchApi from '~/api/fetchApi'
 export default {
   name: 'DefaultLayout',
   data() {
