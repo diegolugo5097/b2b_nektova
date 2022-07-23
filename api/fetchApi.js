@@ -4,10 +4,10 @@ const fetchApi = (options) => {
   axios
     .request(options)
     .then((response) => {
-      response.status(200).send(response.data)
+      console.log(response.data)
     })
     .catch((err) => {
-      response.status(400).send(err)
+      console.log(400).send(err)
     })
 }
 
