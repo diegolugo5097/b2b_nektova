@@ -86,6 +86,7 @@
 <script>
 import options from '~/apiBody/login.js'
 import fetchApi from '~/api/fetchApi'
+import axios from 'axios'
 export default {
   name: 'DefaultLayout',
   data() {
