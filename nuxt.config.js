@@ -18,65 +18,6 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
-  serverMiddleware: [
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/auth/get-account-info.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/auth/login.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/auth/oAuthForgot.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/auth/resetPassword.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/auth/sendEmailForgot.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/category/get-category.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/orderHistory/get-orders-details.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/orderHistory/get-orders.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/quickOrder/get-address.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/quickOrder/orders.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/quickOrder/price-products.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/quickOrder/product-search.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/quickOrder/shoppingList.js',
-    },
-    {
-      path: '/server-middleware',
-      handler: '~/server-middleware/quickOrder/shoppingListPost.js',
-    },
-  ],
-
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 

@@ -84,7 +84,8 @@
 </template>
 
 <script>
-import axios from 'axios'
+import options from '~/apiBody/login.js'
+import apifetch from '~/api/fetchApi'
 export default {
   name: 'DefaultLayout',
   data() {
@@ -127,30 +128,7 @@ export default {
     },
 
     signIn() {
-      axios
-        .post(
-          'https://b2b.thecornercloud.com/oauth2-token',
-          {
-            grant_type: 'password',
-            client_id: 'dtGgEgUWUm5XImbmBcgCNmHL-n6pAhIh',
-            client_secret:
-              'LFZzIRsDXgsqJhYK8FDNKiXs3j7QMBRvrh5zsDVj83t5veIb2ac_IbXze7aZSUl4XNQ39d2sAasKSbzcpErnUo',
-            username: 'customer@example.com',
-            password: 'Custom4rD4mo*',
-          },
-          {
-            headers: {
-              'Access-Control-Allow-Origin': '*',
-              'Content-Type': 'application/json',
-            },
-          }
-        )
-        .then(function (response) {
-          console.log(response)
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
+      fetchApi(options(this.username, this.password))
     },
   },
 }
