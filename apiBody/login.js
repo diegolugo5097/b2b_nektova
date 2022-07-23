@@ -12,8 +12,8 @@ let options = (username, password) => {
       client_id: 'dtGgEgUWUm5XImbmBcgCNmHL-n6pAhIh',
       client_secret:
         'LFZzIRsDXgsqJhYK8FDNKiXs3j7QMBRvrh5zsDVj83t5veIb2ac_IbXze7aZSUl4XNQ39d2sAasKSbzcpErnUo',
-      username: 'diego.lugo@atlanticsoft.us',
-      password: 'Kjkszpj_88',
+      username: username,
+      password: password,
     },
   }
   return buildOptions
